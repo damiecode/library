@@ -24,8 +24,13 @@ function addBookToLibrary() {
 }
 
 function render() {
-  document.getElementById("title").innerHTML = myLibrary[0]["title"];
-  document.getElementById("author").innerHTML = myLibrary[0]["author"];
-  document.getElementById("pages").innerHTML = myLibrary[0]["pages"];
-  document.getElementById("read").innerHTML = myLibrary[0]["readAlready"];
-}
+  document.getElementById("books-list").innerHTML = '';
+  myLibrary.forEach(book => document.getElementById("books-list").innerHTML += `
+   <ul>
+      Title: <li id="title">${book.title}</li>
+      By:<li id="author">${book.author}</li>
+      No of Pages: <li id="pages">${book.pages}</li>
+      Has <li id="read">${book.readAlready}</li>
+    </ul>
+        `
+  )};
