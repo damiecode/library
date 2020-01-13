@@ -1,4 +1,4 @@
-let myLibrary = ["hello"];
+let myLibrary = [];
 
 function Book(title, author, pages, readAlready) {
   this.title = title;
@@ -8,16 +8,13 @@ function Book(title, author, pages, readAlready) {
 }
 
 function addBookToLibrary() {
+  /*let form = document.forms["newBookForm"];*/
+
   let title = document.getElementById("book_title").value;
   let author = document.getElementById("book_author").value;
   let pages = document.getElementById("pages").value;
-  let readAlready = document.getElementsByName("readAlready").value;
+  let readAlready = document.getElementById("readAlready").value;
 
   let newBook = new Book(title, author, pages, readAlready);
   myLibrary.push(newBook);
-  console.log(myLibrary);
-}
-
-function getBooks(){
-  console.log(myLibrary);
 }

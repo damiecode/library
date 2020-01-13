@@ -16,16 +16,15 @@
 
   </header>
   <main>
-    <form>
+
       <input type="text" placeholder="Book Title" id="book_title">
       <input type="text" placeholder="Author" id="book_author">
       <input type="number" placeholder="Num. Pages" id="pages">
       
-      <input type="radio" name="readAlready" value="read">Read already<br>
-      <input type="radio" name="readAlready" value="not read">Not read yet<br>
+      <input type="radio" id="readAlready" value="read">Read already
+      <input type="radio" id="readAlready" value="not read">Not read yet
+      <button onclick="addBookToLibrary()">Submit</button>
 
-      <button onclick="addBookToLibrary()">Add Book</button>
-    </form>
   </main>
 
   <footer>
