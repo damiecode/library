@@ -25,12 +25,19 @@ function addBookToLibrary() {
 
 function render() {
   document.getElementById("books-list").innerHTML = '';
-  myLibrary.forEach(book => document.getElementById("books-list").innerHTML += `
+  myLibrary.forEach((book,index) => document.getElementById("books-list").innerHTML += `
    <ul>
       Title: <li id="title">${book.title}</li>
       By:<li id="author">${book.author}</li>
       No of Pages: <li id="pages">${book.pages}</li>
       Has <li id="read">${book.readAlready}</li>
+      <button onclick="removeBookFromLibrary(this)" data-attributes = ${index} >Delete</button>
     </ul>
         `
   )};
+
+  function removeBookFromLibrary(book) {
+    var bookToDelete = book.getAttribute("data-attributes");
+    myLibrary.splice(bookToDelete, 1)
+    render()
+  }
