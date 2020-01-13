@@ -21,15 +21,15 @@
       <input type="text" placeholder="Author" id="book_author">
       <input type="number" placeholder="Num. Pages" id="pages">
       
-      <input type="radio" id="readAlready" value="read">Read already
-      <input type="radio" id="readAlready" value="not read">Not read yet
+      <input type="radio" name="readAlready" value="read">Read already
+      <input type="radio" name="readAlready" value="not read">Not read yet
       <button onclick="addBookToLibrary()">Submit</button>
 
       <div>
         <ul>
           Title: <li id="title"></li>
           By:<li id="author"></li>
-          No of Pages:<li id="pages"></li>
+          No of Pages: <li id="pages"></li>
           Has <li id="read"></li>
         </ul>
       </div>
