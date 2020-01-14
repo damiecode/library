@@ -1,10 +1,4 @@
-/*
-eslint-env browser
-exported addBookToLibrary
-exported updateReadStatus
-exported removeBookFromLibrary
-*/
-
+/* eslint-env browser */
 
 let myLibrary = JSON.parse(window.localStorage.getItem('library'));
 if (myLibrary == null) {
@@ -53,6 +47,7 @@ function updateLocalStorage(array) {
   window.localStorage.setItem('library', JSON.stringify(array));
 }
 
+// eslint-disable-next-line no-unused-vars
 function addBookToLibrary() {
   const title = document.getElementById('book_title').value;
   const author = document.getElementById('book_author').value;
@@ -72,6 +67,7 @@ function addBookToLibrary() {
   document.getElementById('form').reset();
 }
 
+// eslint-disable-next-line no-unused-vars
 function updateReadStatus(book) {
   const bookToUpdate = book.getAttribute('data-attributes');
   myLibrary[bookToUpdate].updateReadStatus();
@@ -79,6 +75,7 @@ function updateReadStatus(book) {
   render();
 }
 
+// eslint-disable-next-line no-unused-vars
 function removeBookFromLibrary(book) {
   const bookToDelete = book.getAttribute('data-attributes');
   myLibrary.splice(bookToDelete, 1);
