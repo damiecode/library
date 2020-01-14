@@ -1,4 +1,4 @@
-let myLibrary = [];
+let myLibrary = JSON.parse(window.localStorage.getItem('library'));
 
 function Book(title, author, pages, readAlready) {
   this.title = title;
@@ -28,6 +28,7 @@ function addBookToLibrary() {
 
   let newBook = new Book(title, author, pages, readAlready);
   myLibrary.push(newBook);
+  updateLocalStorage(myLibrary)
   render()
   document.getElementById('id01').style.display='none';
   document.getElementById('form').reset();
@@ -52,11 +53,17 @@ function render() {
   function updateReadStatus(book){
     var bookToUpdate = book.getAttribute("data-attributes");
     myLibrary[bookToUpdate].updateReadStatus();
+    updateLocalStorage(myLibrary)
     render();
   }
 
   function removeBookFromLibrary(book) {
     var bookToDelete = book.getAttribute("data-attributes");
     myLibrary.splice(bookToDelete, 1)
+    updateLocalStorage(myLibrary)
     render()
   }
+
+function updateLocalStorage(array) {
+  window.localStorage.setItem('library', JSON.stringify( array ))
+}
