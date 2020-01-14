@@ -33,44 +33,52 @@
   <main>
     <h2>Add a book</h2>
     <div class="container">
-          <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add a book</button>
-          
-          <div id="id01" class="modal">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-            <div class="modal-content animate">
-              <div class="container">
-                <div class="form-group">
-                  <label for="book_title"><b>Book Title</b></label>
-                  <input type="text" placeholder="Book Title" id="book_title" required>
-                </div>
-          
-                <div class="form-group">
-                  <label for="book_author"><b>Author</b></label>
-                  <input type="text" placeholder="Author" id="book_author" class="form-control" required>
-                </div>
-          
-                <div class="form-group">
-                  <label for="pages"><b>No of Pages</b></label>
-                  <input type="number" placeholder="Num. Pages" id="pages" class="form-control" required>
-                </div>
-          
-                <div class="form-group form-check">
-                  <input form-check-input type="radio" name="readAlready" value="read" class="form-control" id="read">
-                  <label class="form-check-label" for="read">Read already</label>
-                  <input form-check-input type="radio" name="readAlready" value="not read" class="form-control" id="not-read">
-                  <label class="form-check-label" for="not-read">Not read yet</label>
-                </div>
-          
-                <div class="clearfix">
-                  <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                    class="cancelbtn">Cancel</button>
-                  <button onclick="addBookToLibrary()" class="addBook">Submit</button>
-                </div>
+      <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add a book</button>
+      
+      <div id="id01" class="modal">
+        <div class="modal-content animate">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+          <div class="container">
+            <div class="form-group">
+              <label for="book_title"><b>Book Title</b></label>
+              <input type="text" placeholder="Book Title" id="book_title" class="form-control" required>
+            </div>
+      
+            <div class="form-group">
+              <label for="book_author"><b>Author</b></label>
+              <input type="text" placeholder="Author" id="book_author" class="form-control" required>
+            </div>
+      
+            <div class="form-group">
+              <label for="pages"><b>No of Pages</b></label>
+              <input type="number" placeholder="Num. Pages" id="pages" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <div class="form-check">
+                <input form-check-input type="radio" name="readAlready" value="read" class="form-check-input" id="read">
+                <label class="form-check-label" for="read">Read already</label>
               </div>
+              <div class="form-check">
+                <input form-check-input type="radio" name="readAlready" value="not read" class="form-check-input" id="not-read">
+                <label class="form-check-label" for="not-read">Not read yet</label>
+              </div>
+            </div>
+
+            <div class="clearfix">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                class="cancelbtn">Cancel</button>
+              <button type="submit" onclick="addBookToLibrary()" class="addBook">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="books-list" class="container">
+      </div>
     </div>
-    <div id="books-list" class="container">
-    </div>
+    
   </main>
+
 
   <footer>
 

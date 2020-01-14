@@ -21,6 +21,7 @@ function addBookToLibrary() {
   let newBook = new Book(title, author, pages, readAlready);
   myLibrary.push(newBook);
   render()
+  document.getElementById('id01').style.display='none';
 }
 
 function render() {

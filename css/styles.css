@@ -30,6 +30,10 @@ input[type=number] {
   box-sizing: border-box;
 }
 
+input[type=number] {
+  padding: 10px 20px;
+}
+
 /* set a style for all buttons*/
 button {
   background-color: navy;
