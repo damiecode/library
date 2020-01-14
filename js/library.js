@@ -1,4 +1,7 @@
 let myLibrary = JSON.parse(window.localStorage.getItem('library'));
+if (myLibrary == null) {
+  myLibrary = [];
+}
 
 function Book(title, author, pages, readAlready) {
   this.title = title;
@@ -7,13 +10,16 @@ function Book(title, author, pages, readAlready) {
   this.readAlready = readAlready;
 }
 
-Book.prototype.updateReadStatus = function() {
-  if (this.readAlready === 'Read') {
-    this.readAlready = 'Not Read';
-  } else {
-    this.readAlready = 'Read';
+Book.prototype = {
+  constructor: Book, // define the constructor property
+  updateReadStatus: function () {
+    if (this.readAlready === 'Read') {
+      this.readAlready = 'Not Read';
+    } else {
+      this.readAlready = 'Read';
+    }
   }
-}
+};
 
 function addBookToLibrary() {
   let title = document.getElementById("book_title").value;
