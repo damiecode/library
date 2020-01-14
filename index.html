@@ -12,29 +12,12 @@
 
 <body onload="render()">
   <script src="js/library.js"></script>
-  <header>
-    <div class="nav1">
-      <ul class="nav nav1">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Active</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-    </div>
-  </header>
   <main>
-    <h2>Add a book</h2>
     <div class="container">
-      <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add a book</button>
-      
+      <h2 class="text-center">Welcome to our library, please add a book below</h2>
+      <div class="book-btn">
+        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add a book</button>
+      </div>
       <div id="id01" class="modal">
         <div class="modal-content animate">
           <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
@@ -73,7 +56,7 @@
           </form>
         </div>
       </div>
-      <div id="books-list" class="container">
+      <div id="books-list" class="row">
       </div>
     </div>
     
@@ -81,7 +64,7 @@
 
 
   <footer>
-
+    <p class="text-center">copyright &copy;. Designed by Miguel and Dami</p>
   </footer>
 
   <script>

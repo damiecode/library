@@ -13,10 +13,10 @@ function Book(title, author, pages, readAlready) {
 Book.prototype = {
   constructor: Book, // define the constructor property
   updateReadStatus: function () {
-    if (this.readAlready === 'Read') {
-      this.readAlready = 'Not Read';
+    if (this.readAlready === 'been read') {
+      this.readAlready = 'not been read';
     } else {
-      this.readAlready = 'Read';
+      this.readAlready = 'been read';
     }
   }
 };
@@ -27,9 +27,9 @@ function addBookToLibrary() {
   let pages = parseInt(document.getElementById("pages").value);
   let readAlready = document.getElementsByName("readAlready")[0].checked;
   if(readAlready == true) {
-    readAlready = "Read";
+    readAlready = "been read";
   } else {
-    readAlready = "Not Read";
+    readAlready = "not been read";
   }
 
   let newBook = new Book(title, author, pages, readAlready);
@@ -43,12 +43,13 @@ function addBookToLibrary() {
 function render() {
   document.getElementById("books-list").innerHTML = '';
   myLibrary.forEach((book,index) => document.getElementById("books-list").innerHTML += `
-   <div class="container>
+
+   <div class="col-12 col-md-3 col-lg-4">
       <ul>
-        Title: <li id="title">${book.title}</li>
-        By:<li id="author">${book.author}</li>
-        No of Pages: <li id="pages">${book.pages}</li>
-        Has <li id="read">${book.readAlready}</li>
+        <li id="title"><b>Title</b>: ${book.title}</li>
+        <li id="author"><b>By</b>: ${book.author}</li>
+        <li id="pages"><b>No of Pages</b>: ${book.pages}</li>
+        <li id="read"><b>Has</b> ${book.readAlready}</li>
         <button onclick="updateReadStatus(this)" data-attributes = ${index} >Update Read Status</button>
         <button onclick="removeBookFromLibrary(this)" data-attributes = ${index} >Delete</button>
       </ul>
