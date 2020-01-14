@@ -7,6 +7,14 @@ function Book(title, author, pages, readAlready) {
   this.readAlready = readAlready;
 }
 
+Book.prototype.updateReadStatus = function() {
+  if (this.readAlready === 'Read') {
+    this.readAlready = 'Not Read';
+  } else {
+    this.readAlready = 'Read';
+  }
+}
+
 function addBookToLibrary() {
   let title = document.getElementById("book_title").value;
   let author = document.getElementById("book_author").value;
@@ -34,11 +42,18 @@ function render() {
         By:<li id="author">${book.author}</li>
         No of Pages: <li id="pages">${book.pages}</li>
         Has <li id="read">${book.readAlready}</li>
+        <button onclick="updateReadStatus(this)" data-attributes = ${index} >Update Read Status</button>
         <button onclick="removeBookFromLibrary(this)" data-attributes = ${index} >Delete</button>
       </ul>
     </div>
         `
   )};
+
+  function updateReadStatus(book){
+    var bookToUpdate = book.getAttribute("data-attributes");
+    myLibrary[bookToUpdate].updateReadStatus();
+    render();
+  }
 
   function removeBookFromLibrary(book) {
     var bookToDelete = book.getAttribute("data-attributes");
