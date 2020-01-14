@@ -6,30 +6,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no" />
 
   <title>Library</title>
-
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
   <script src="js/library.js"></script>
   <header>
-
+    <div class="nav1">
+      <ul class="nav nav1">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    </div>
   </header>
   <main>
-
-      <input type="text" placeholder="Book Title" id="book_title">
-      <input type="text" placeholder="Author" id="book_author">
-      <input type="number" placeholder="Num. Pages" id="pages">
-      
-      <input type="radio" name="readAlready" value="read">Read already
-      <input type="radio" name="readAlready" value="not read">Not read yet
-      <button onclick="addBookToLibrary()">Submit</button>
-
-      <div id="books-list">
-      </div>
+    <h2>Add a book</h2>
+    <div class="container">
+          <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add a book</button>
+          
+          <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+            <div class="modal-content animate">
+              <div class="container">
+                <div class="form-group">
+                  <label for="book_title"><b>Book Title</b></label>
+                  <input type="text" placeholder="Book Title" id="book_title" required>
+                </div>
+          
+                <div class="form-group">
+                  <label for="book_author"><b>Author</b></label>
+                  <input type="text" placeholder="Author" id="book_author" class="form-control" required>
+                </div>
+          
+                <div class="form-group">
+                  <label for="pages"><b>No of Pages</b></label>
+                  <input type="number" placeholder="Num. Pages" id="pages" class="form-control" required>
+                </div>
+          
+                <div class="form-group form-check">
+                  <input form-check-input type="radio" name="readAlready" value="read" class="form-control" id="read">
+                  <label class="form-check-label" for="read">Read already</label>
+                  <input form-check-input type="radio" name="readAlready" value="not read" class="form-control" id="not-read">
+                  <label class="form-check-label" for="not-read">Not read yet</label>
+                </div>
+          
+                <div class="clearfix">
+                  <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn">Cancel</button>
+                  <button onclick="addBookToLibrary()" class="addBook">Submit</button>
+                </div>
+              </div>
+    </div>
+    <div id="books-list" class="container">
+    </div>
   </main>
 
   <footer>
 
   </footer>
+
+  <script>
+     var modal = document.getElementById('id01');
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      } 
+  </script>
 </body>
