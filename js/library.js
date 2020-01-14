@@ -1,3 +1,5 @@
+/* eslint-env browser */
+
 let myLibrary = JSON.parse(window.localStorage.getItem('library'));
 if (myLibrary == null) {
   myLibrary = [];
