@@ -20,22 +20,22 @@ Book.prototype = {
     }
   }
 };
-
+myLibrary.forEach(book => book.__proto__ = new Book())
 function addBookToLibrary() {
   let title = document.getElementById("book_title").value;
   let author = document.getElementById("book_author").value;
-  let pages = parseInt(document.getElementById("pages").value)
+  let pages = parseInt(document.getElementById("pages").value);
   let readAlready = document.getElementsByName("readAlready")[0].checked;
   if(readAlready == true) {
-    readAlready = "Read"
+    readAlready = "Read";
   } else {
-    readAlready = "Not Read"
+    readAlready = "Not Read";
   }
 
   let newBook = new Book(title, author, pages, readAlready);
   myLibrary.push(newBook);
-  updateLocalStorage(myLibrary)
-  render()
+  updateLocalStorage(myLibrary);
+  render();
   document.getElementById('id01').style.display='none';
   document.getElementById('form').reset();
 }
@@ -59,17 +59,17 @@ function render() {
   function updateReadStatus(book){
     var bookToUpdate = book.getAttribute("data-attributes");
     myLibrary[bookToUpdate].updateReadStatus();
-    updateLocalStorage(myLibrary)
+    updateLocalStorage(myLibrary);
     render();
   }
 
   function removeBookFromLibrary(book) {
     var bookToDelete = book.getAttribute("data-attributes");
-    myLibrary.splice(bookToDelete, 1)
-    updateLocalStorage(myLibrary)
-    render()
+    myLibrary.splice(bookToDelete, 1);
+    updateLocalStorage(myLibrary);
+    render();
   }
 
 function updateLocalStorage(array) {
-  window.localStorage.setItem('library', JSON.stringify( array ))
+  window.localStorage.setItem('library', JSON.stringify( array ));
 }
