@@ -22,12 +22,12 @@ li {
 .book-btn {
   text-align: center;
   margin-bottom: 30px;
-  border-bottom: 3px solid #000; 
+  border-bottom: 3px solid #000;
 }
 
 /*add full-width input fields*/
-input[type=text],
-input[type=number] {
+input[type="text"],
+input[type="number"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -36,7 +36,7 @@ input[type=number] {
   box-sizing: border-box;
 }
 
-input[type=number] {
+input[type="number"] {
   padding: 10px 20px;
 }
 
@@ -53,14 +53,14 @@ button {
 /*set styles for the cancel button*/
 .cancelbtn {
   padding: 14px 20px;
-  background-color: #FF2E00;
+  background-color: #ff2e00;
 }
 
 /*float cancel and signup buttons and add an equal width*/
 .cancelbtn,
 .addBook {
   float: left;
-  width: 50%
+  width: 50%;
 }
 
 /*add padding to container elements*/
@@ -119,7 +119,6 @@ button {
 }
 
 @media screen and (max-width: 300px) {
-
   .cancelbtn,
   .addBook {
     width: 100%;
