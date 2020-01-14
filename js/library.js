@@ -1,7 +1,9 @@
-/* eslint-env browser */
-/* exported addBookToLibrary */
-/* exported updateReadStatus */
-/* exported removeBookFromLibrary */
+/*
+eslint-env browser
+exported addBookToLibrary
+exported updateReadStatus
+exported removeBookFromLibrary
+*/
 
 
 let myLibrary = JSON.parse(window.localStorage.getItem('library'));
