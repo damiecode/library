@@ -38,7 +38,7 @@
       <div id="id01" class="modal">
         <div class="modal-content animate">
           <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-          <div class="container">
+          <form class="container" id='form'>
             <div class="form-group">
               <label for="book_title"><b>Book Title</b></label>
               <input type="text" placeholder="Book Title" id="book_title" class="form-control" required>
@@ -68,9 +68,9 @@
             <div class="clearfix">
               <button type="button" onclick="document.getElementById('id01').style.display='none'"
                 class="cancelbtn">Cancel</button>
-              <button type="submit" onclick="addBookToLibrary()" class="addBook">Submit</button>
+              <button onclick="addBookToLibrary()" class="addBook">Submit</button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <div id="books-list" class="container">

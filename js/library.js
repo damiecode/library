@@ -22,6 +22,7 @@ function addBookToLibrary() {
   myLibrary.push(newBook);
   render()
   document.getElementById('id01').style.display='none';
+  document.getElementById('form').reset();
 }
 
 function render() {
