@@ -59,9 +59,9 @@ function addBookToLibrary(ev) {
     readAlready = 'not been read';
   }
 
-  if (title === '' || author === '' || pages === '' ) {
-    alert('Please fill in all fields');
-  }else {
+  if (title === '' || author === '' || pages === '') {
+    alert('Please fill in all fields');  // eslint-disable-line no-alert
+  } else {
     const newBook = new Book(title, author, pages, readAlready);
     myLibrary.push(newBook);
     updateLocalStorage(myLibrary);
