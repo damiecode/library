@@ -48,10 +48,10 @@ function updateLocalStorage(array) {
 }
 
 // eslint-disable-next-line no-unused-vars
-function addBookToLibrary() {
+function addBookToLibrary(ev) {
   const title = document.getElementById('book_title').value;
   const author = document.getElementById('book_author').value;
-  const pages = parseInt(document.getElementById('pages').value, 16);
+  const pages = document.getElementById('pages').value;
   let readAlready = document.getElementsByName('readAlready')[0].checked;
   if (readAlready === true) {
     readAlready = 'been read';
@@ -59,12 +59,16 @@ function addBookToLibrary() {
     readAlready = 'not been read';
   }
 
-  const newBook = new Book(title, author, pages, readAlready);
-  myLibrary.push(newBook);
-  updateLocalStorage(myLibrary);
-  render();
-  document.getElementById('id01').style.display = 'none';
-  document.getElementById('form').reset();
+  if (title === '' || author === '' || pages === '' ) {
+    alert('Please fill in all fields');
+  }else {
+    const newBook = new Book(title, author, pages, readAlready);
+    myLibrary.push(newBook);
+    updateLocalStorage(myLibrary);
+    render();
+    document.getElementById('id01').style.display = 'none';
+    document.getElementById('form').reset();
+  }
 }
 
 // eslint-disable-next-line no-unused-vars
