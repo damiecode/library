@@ -24,27 +24,67 @@ Book.prototype = {
 };
 
 myLibrary.forEach((book) => { Object.setPrototypeOf(book, Book.prototype); });
+function updateLocalStorage(array) {
+  window.localStorage.setItem('library', JSON.stringify(array));
+}
 
 function render() {
   document.getElementById('books-list').innerHTML = '';
   myLibrary.forEach((book, index) => {
-    document.getElementById('books-list').innerHTML += `
+    const bookList = document.getElementById('books-list');
 
-   <div class="col-12 col-md-3 col-lg-4">
-      <ul>
-        <li id="title"><b>Title</b>: ${book.title}</li>
-        <li id="author"><b>By</b>: ${book.author}</li>
-        <li id="pages"><b>No of Pages</b>: ${book.pages}</li>
-        <li id="read"><b>Has</b> ${book.readAlready}</li>
-        <button class='updateBtn' data-attributes = ${index} >Update Read Status</button>
-        <button class='removeBtn' data-attributes = ${index} >Delete</button>
-      </ul>
-    </div>`;
+    const div = document.createElement('div');
+    div.className = 'col-12 col-md-3 col-lg-4';
+
+    const ul = document.createElement('ul');
+    div.appendChild(ul);
+
+    const liTitle = document.createElement('li');
+    liTitle.id = 'title';
+    liTitle.innerHTML = `<b>Title</b>: ${book.title}`;
+    ul.appendChild(liTitle);
+
+    const liAuthor = document.createElement('li');
+    liAuthor.id = 'author';
+    liAuthor.innerHTML = `<b>By</b>: ${book.author}`;
+    ul.appendChild(liAuthor);
+
+    const liPages = document.createElement('li');
+    liPages.id = 'pages';
+    liPages.innerHTML = `<b>No of Pages</b>: ${book.pages}`;
+    ul.appendChild(liPages);
+
+    const liRead = document.createElement('li');
+    liRead.id = 'read';
+    liRead.innerHTML = `<b>Has</b> ${book.readAlready}`;
+    ul.appendChild(liRead);
+
+    const btnUpdate = document.createElement('button');
+    btnUpdate.className = 'updateBtn';
+    btnUpdate.setAttribute('data-attributes', index);
+    btnUpdate.innerHTML = 'Update Read Status';
+    btnUpdate.addEventListener('click', (event) => {
+      const bookToUpdate = event.target.getAttribute('data-attributes');
+      myLibrary[bookToUpdate].updateReadStatus();
+      updateLocalStorage(myLibrary);
+      render();
+    });
+    ul.appendChild(btnUpdate);
+
+    const btnRemove = document.createElement('button');
+    btnRemove.className = 'removeBtn';
+    btnRemove.setAttribute('data-attributes', index);
+    btnRemove.innerHTML = 'Delete';
+    btnRemove.addEventListener('click', (event) => {
+      const bookToDelete = event.target.getAttribute('data-attributes');
+      myLibrary.splice(bookToDelete, 1);
+      updateLocalStorage(myLibrary);
+      render();
+    });
+    ul.appendChild(btnRemove);
+
+    bookList.appendChild(div);
   });
-}
-
-function updateLocalStorage(array) {
-  window.localStorage.setItem('library', JSON.stringify(array));
 }
 
 function addBookToLibrary() {
@@ -70,44 +110,3 @@ function addBookToLibrary() {
   }
 }
 document.getElementById('submitBtn').addEventListener('click', addBookToLibrary);
-
-function updateReadStatus(book) {
-  console.log(book);
-  const bookToUpdate = book.getAttribute('data-attributes');
-  myLibrary[bookToUpdate].updateReadStatus();
-  updateLocalStorage(myLibrary);
-  render();
-}
-// const updateButtons = document.getElementsByClassName('updateBtn');
-// for (let elem of updateButtons) {
-//   elem.addEventListener('click', updateReadStatus(elem));
-// }
-
-const updateButtons = document.querySelectorAll('.updateBtn');
-updateButtons.forEach((elem) => elem.addEventListener('click', updateReadStatus(elem)));
-
-function removeBookFromLibrary(book) {
-  const bookToDelete = book.getAttribute('data-attributes');
-  myLibrary.splice(bookToDelete, 1);
-  updateLocalStorage(myLibrary);
-  render();
-}
-// document.getElementById('removeBtn').addEventListener('click', removeBookFromLibrary);
-
-// function asArray(obj) {
-//   const newArr = [];
-//   newArr.push.apply(newArr, obj);
-//   return newArr;
-// }
-
-// function queryAll(selector) {
-//   return asArray(document.querySelectorAll(selector));
-// }
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   // Wait to add event listeners until the DOM is fully loaded. This is needed
-//   // when wanting to access elements that are later in the HTML than the <script>.
-//   queryAll('.updateBtn').forEach((el) => {
-//     el.addEventListener('click', updateReadStatus(this));
-//   });
-// });
