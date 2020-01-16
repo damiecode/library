@@ -92,20 +92,22 @@ function addBookToLibrary() {
   const author = document.getElementById('book_author').value;
   const pages = document.getElementById('pages').value;
   let readAlready = document.getElementsByName('readAlready')[0].checked;
-  if (readAlready === true) {
-    readAlready = 'been read';
-  } else {
-    readAlready = 'not been read';
-  }
+  const notRead = document.getElementsByName('readAlready')[1].checked;
 
-  if (title === '' || author === '' || pages === '') {
-    alert('Please fill in all fields'); // eslint-disable-line no-alert
+  if (title === '' || author === '' || pages === '' || (readAlready === false && notRead === false)) {
+    document.getElementById('alert-form').style.display = 'block';
   } else {
+    if (readAlready === true) {
+      readAlready = 'been read';
+    } else {
+      readAlready = 'not been read';
+    }
     const newBook = new Book(title, author, pages, readAlready);
     myLibrary.push(newBook);
     updateLocalStorage(myLibrary);
     render();
     document.getElementById('id01').style.display = 'none';
+    document.getElementById('alert-form').style.display = 'none';
     document.getElementById('form').reset();
   }
 }

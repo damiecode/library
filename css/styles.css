@@ -118,6 +118,10 @@ button {
   display: table;
 }
 
+#alert-form{
+  display: none;
+}
+
 @media screen and (max-width: 300px) {
   .cancelbtn,
   .addBook {
