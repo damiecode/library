@@ -36,8 +36,8 @@ function render() {
         <li id="author"><b>By</b>: ${book.author}</li>
         <li id="pages"><b>No of Pages</b>: ${book.pages}</li>
         <li id="read"><b>Has</b> ${book.readAlready}</li>
-        <button onclick="updateReadStatus(this)" data-attributes = ${index} >Update Read Status</button>
-        <button onclick="removeBookFromLibrary(this)" data-attributes = ${index} >Delete</button>
+        <button class='updateBtn' data-attributes = ${index} >Update Read Status</button>
+        <button class='removeBtn' data-attributes = ${index} >Delete</button>
       </ul>
     </div>`;
   });
@@ -47,8 +47,7 @@ function updateLocalStorage(array) {
   window.localStorage.setItem('library', JSON.stringify(array));
 }
 
-// eslint-disable-next-line no-unused-vars
-function addBookToLibrary(ev) {
+function addBookToLibrary() {
   const title = document.getElementById('book_title').value;
   const author = document.getElementById('book_author').value;
   const pages = document.getElementById('pages').value;
@@ -70,19 +69,45 @@ function addBookToLibrary(ev) {
     document.getElementById('form').reset();
   }
 }
+document.getElementById('submitBtn').addEventListener('click', addBookToLibrary);
 
-// eslint-disable-next-line no-unused-vars
 function updateReadStatus(book) {
+  console.log(book);
   const bookToUpdate = book.getAttribute('data-attributes');
   myLibrary[bookToUpdate].updateReadStatus();
   updateLocalStorage(myLibrary);
   render();
 }
+// const updateButtons = document.getElementsByClassName('updateBtn');
+// for (let elem of updateButtons) {
+//   elem.addEventListener('click', updateReadStatus(elem));
+// }
 
-// eslint-disable-next-line no-unused-vars
+const updateButtons = document.querySelectorAll('.updateBtn');
+updateButtons.forEach((elem) => elem.addEventListener('click', updateReadStatus(elem)));
+
 function removeBookFromLibrary(book) {
   const bookToDelete = book.getAttribute('data-attributes');
   myLibrary.splice(bookToDelete, 1);
   updateLocalStorage(myLibrary);
   render();
 }
+// document.getElementById('removeBtn').addEventListener('click', removeBookFromLibrary);
+
+// function asArray(obj) {
+//   const newArr = [];
+//   newArr.push.apply(newArr, obj);
+//   return newArr;
+// }
+
+// function queryAll(selector) {
+//   return asArray(document.querySelectorAll(selector));
+// }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   // Wait to add event listeners until the DOM is fully loaded. This is needed
+//   // when wanting to access elements that are later in the HTML than the <script>.
+//   queryAll('.updateBtn').forEach((el) => {
+//     el.addEventListener('click', updateReadStatus(this));
+//   });
+// });

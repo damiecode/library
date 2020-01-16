@@ -11,7 +11,6 @@
 </head>
 
 <body onload="render()">
-  <script src="js/library.js"></script>
   <main>
     <div class="container">
       <h2 class="text-center">Welcome to our library, please add a book below</h2>
@@ -51,7 +50,7 @@
             <div class="clearfix">
               <button type="button" onclick="document.getElementById('id01').style.display='none'"
                 class="cancelbtn">Cancel</button>
-              <button onclick="addBookToLibrary()" class="addBook" type="button">Submit</button>
+              <button id="submitBtn" class="addBook" type="button">Submit</button>
             </div>
           </form>
         </div>
@@ -66,7 +65,6 @@
   <footer>
     <p class="text-center">copyright &copy;. Designed by Miguel and Dami</p>
   </footer>
-
   <script>
      var modal = document.getElementById('id01');
 
@@ -76,4 +74,5 @@
         }
       } 
   </script>
+  <script src="js/library.js"></script>
 </body>
