@@ -1,39 +1,53 @@
-# Microverse Project Title - Library
+<h1 align="center">Book Library</h1>
+<br>
 
-## Technologies
+<p>
+  <a href="https://rawcdn.githack.com/damiecode/library/62179f3cc68f860c2025cfbde62c6c058b8f66a3/index.html" target="_blank">
+    <img alt="Website" src="library.png" />
+  </a>
+</p>
 
-- HTML
-- CSS
+<br>
+
+This project is part of a series of projects to be completed by students of [Microverse](https://www.microverse.org/ "The Global School for Remote Software Developers!").
+
+Book Library is a collaborative project by [Damilola Ale](https://github.com/damiecode) and [Miguel Prada](https://github.com/mapra99). The full project description can be found [here](https://www.theodinproject.com/courses/javascript/lessons/library).
+
+## Built With
+
 - JavaScript
+- HMTL/CSS
+- Bootstrap
 
-## Requirements
-* If you haven’t already, set up your project with skeleton HTML/CSS and JS files.
+## Usage
 
-* All of your book objects are going to be stored in a simple array, so add a function to the script (not the constructor) that can take user’s input and store the new book objects into an array. Your code should look something like this:
+The live version of the webapp can be found [here](https://rawcdn.githack.com/damiecode/library/62179f3cc68f860c2025cfbde62c6c058b8f66a3/index.htmll)
+
+> Clone the repository to your local machine
+
 ```sh
-  let myLibrary = [];
-
-  function Book() {
-    // the constructor...
-  }
-
-  function addBookToLibrary() {
-    // do stuff here
-  }
+$ git clone https://github.com/damiecode/library.git
 ```
-* Hook the array up to your HTML with a render() function that loops through the array and displays each book on the page. You can display them in some sort of table, or each on their own “card”. It might help for now to manually add a few books to your array so you can see the display.
-* Add a “NEW BOOK” button that brings up a form allowing users to input the details for the new book: author, title, number of pages, whether it’s been read and anything else you might want.
-* Add a button on each book’s display to remove the book from the library.
-You will need to associate your DOM elements with the actual book objects in some way. One easy solution is giving them a data-attribute that corresponds to the index of the library array.
-* Add a button on each book’s display to change its read status.
-To facilitate this you will want to create the function that toggles a book’s read status on your Book prototype instance.
-* Optional -we haven’t learned any techniques for actually storing our data anywhere, so when the user refreshes the page all of their books will disappear! If you want, you are capable of adding some persistence to this library app using one of the following techniques:
-- localStorage (docs here) allows you to save data on the user’s computer. The downside here is that the data is ONLY accessible on the computer that it was created on. Even so, it’s pretty handy! Set up a function that saves the whole library array to localStorage every time a new book is created, and another function that looks for that array in localStorage when your app is first loaded. (make sure your app doesn’t crash if the array isn’t there!)
-- Firebase (check it out!) is an online database that can be set up relatively easily, allowing you to save your data to a server in the cloud! Teaching you how to use it is beyond the scope of this tutorial, but it is almost definitely within your skill set. If you’re interested, check out this video to see what it’s all about.
 
-## Link to Project
-[OdinProject](https://www.theodinproject.com/courses/javascript/lessons/library?ref=lnav)
+> cd into the directory
 
-## Authors
-- Damilola Ale @damiecode
-- Miguel Prada @mapra99
+```sh
+$ cd Library
+```
+
+> Open `index.html` using your favourite broswer: 
+
+## Contributing
+
+1. Fork it (https://github.com/damiecode/library/fork)
+2. Create your feature branch (git checkout -b feature/[choose-a-name])
+3. Commit your changes (git commit -am 'what this commit will fix/add')
+4. Push to the branch (git push origin feature/[chosen-name])
+5. Create a new Pull Request
+
+## Contact me
+
+  I am looking for my next opportunity. Reach out to me if you are looking to hire!
+- Email: _codenlyn@gmail.com_
+- Github: [@damiecode](https://github.com/damiecode)
+- Twitter: [@iamlildamski](https://twitter.com/iamlildamski)
