@@ -1,14 +1,13 @@
-<h1 align="center">Welcome to Book Library 👋</h1>
+<h1 align="center">Welcome to Library 👋</h1>
 
 <p>
   <a href="https://rawcdn.githack.com/damiecode/library/62179f3cc68f860c2025cfbde62c6c058b8f66a3/index.html" target="_blank">
     <img alt="Website" src="library.png" />
   </a>
 </p>
-
 This project is part of a series of projects to be completed by students of [Microverse](https://www.microverse.org/ "The Global School for Remote Software Developers!").
 
-Book Library is a collaborative project by [Damilola Ale](https://github.com/damiecode) and [Miguel Prada](https://github.com/mapra99). The full project description can be found [here](https://www.theodinproject.com/courses/javascript/lessons/library).
+Library is a collaborative project by [Damilola Ale](https://github.com/damiecode) and [Miguel Prada](https://github.com/mapra99). The full project description can be found [here](https://www.theodinproject.com/courses/javascript/lessons/library).
 
 ## Built With
 
