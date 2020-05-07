@@ -7,6 +7,7 @@
 </p>
 This project is part of a series of projects to be completed by students of [Microverse](https://www.microverse.org/ 'The Global School for Remote Software Developers!').
 
+
 Library is a collaborative project by [Damilola Ale](https://github.com/damiecode) and [Miguel Prada](https://github.com/mapra99). The full project description can be found [here](https://www.theodinproject.com/courses/javascript/lessons/library).
 
 ## Built With
