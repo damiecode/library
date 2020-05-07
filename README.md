@@ -10,6 +10,8 @@ This project is part of a series of projects to be completed by students of [Mic
 
 Library is a collaborative project by [Damilola Ale](https://github.com/damiecode) and [Miguel Prada](https://github.com/mapra99). The full project description can be found [here](https://www.theodinproject.com/courses/javascript/lessons/library).
 
+Library is an online storage for books. In library you can add different books to keep track of if you have read them or not. You can also delete books if you do not need them in your library again.
+
 ## Built With
 
 - JavaScript
@@ -34,13 +36,17 @@ $ cd Library
 
 > Open `index.html` using your favourite broswer: 
 
-## Contributing
+## 🤝 Contributing
 
 1. Fork it (https://github.com/damiecode/library/fork)
 2. Create your feature branch (git checkout -b feature/[choose-a-name])
 3. Commit your changes (git commit -am 'what this commit will fix/add')
 4. Push to the branch (git push origin feature/[chosen-name])
 5. Create a new Pull Request
+
+## Future features
+- Users can add links to the books to access them directly online.
+- Other users can view books in different users library.
 
 ## Contact me
 
